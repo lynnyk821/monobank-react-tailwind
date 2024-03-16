@@ -1,6 +1,6 @@
 const FooterHolder = () => {
-    const widgetButtonStyles = "text-[14px] font-bold leading-6 rounded-2xl p-2 border-[1px] gap-1 flex items-center justify-center";
-
+    const widgetButtonStyles = "text-[14px] font-bold leading-6 rounded-2xl p-2 border-[1px] gap-1 " +
+                                      "flex items-center justify-center hover:bg-white hover:bg-opacity-20";
     return (
         <main className="w-[990px] h-12 font-medium text-opacity-[0.8] text-[#ffffff] flex leading-4 m-4">
             <div className="w-1/2 text-[12px]">

@@ -1,12 +1,15 @@
 function RightCard() {
     const border = "border-[1px] border-[#ccc] border-solid}"
     const flexClasses = "flex items-center justify-center";
-    const smallButtonMoneyStyles = `w-24 h-10 ${border} rounded-2xl text-sm font-medium border-gray-300`;
+
+    const smallButtonMoneyStyles = `w-24 h-10 ${border} rounded-2xl text-sm font-medium border-gray-300 
+                                           hover:bg-gray-300 hover:bg-opacity-50`;
 
     const fieldContainerStyles = `w-5/6 h-14 ${flexClasses} mb-4`;
     const inputUserFieldStyles = `w-full h-full ${border} p-4 rounded-2xl text-lg`;
 
-    const buttonUserFieldStyles = `w-full h-full p-4 rounded-xl ${flexClasses} bg-black`;
+    const buttonUserFieldStyles = `w-full h-full p-4 rounded-xl ${flexClasses} bg-black
+                                          hover:bg-opacity-75`;
 
     return (
         <main className="w-1/2 h-full flex items-center flex-col">
