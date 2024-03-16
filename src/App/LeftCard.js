@@ -3,6 +3,7 @@ function LeftCard() {
     return (
         /*<Left card container/>*/
         <main className="w-1/2 h-full flex flex-col bg-gray-200 bg-opacity-[0.3]">
+
             {/* * * Jar Header Logo * * */}
             <div className={`w-full h-1/6 ${flexClasses}`}>
                 <img className="w-25 h-4 monobank-logo" src="https://send.monobank.ua/img/logo_short.png" alt=""/>
@@ -29,7 +30,7 @@ function LeftCard() {
 
                 <div className={`w-full h-1/6 gap-1 ${flexClasses}`}>
                     <div className={`w-3/5 h-14 ${flexClasses} text-sm rounded-2xl bg-white`}>
-                        <div className={`w-1/2 h-full pl-3 flex items-center gap-3`}>
+                        <div className={`w-1/2 h-2/3 pl-3 flex items-center gap-3 border-r-[1px] border-opacity-[0.4] border-[#808080]`}>
                             <img className="w-6 h-6" src="https://send.monobank.ua/img/collected.svg" alt=""/>
                             <div className="stats-text">
                                 <p className="text-[#808080]">Накопичено</p>

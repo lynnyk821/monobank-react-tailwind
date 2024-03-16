@@ -21,3 +21,7 @@ code {
 .gradient-bg-1{
   background: linear-gradient(136.56deg, #8a53b6 0%, #cea2d0 97.42%) no-repeat;
 }
+
+.gradient-bg-2{
+  background: linear-gradient(92.12deg, #57b5f9 0%, #da11ba 100%);
+}
