@@ -535,20 +535,68 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.h-1 {
-  height: 0.25rem;
+.flex {
+  display: flex;
 }
 
-.w-1 {
-  width: 0.25rem;
+.h-\[660px\] {
+  height: 660px;
 }
 
-.bg-amber-50 {
+.h-full {
+  height: 100%;
+}
+
+.w-\[990px\] {
+  width: 990px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+.bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 251 235 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.gradient-bg-1{
+  background: linear-gradient(136.56deg, #8a53b6 0%, #cea2d0 97.42%) no-repeat;
 }
