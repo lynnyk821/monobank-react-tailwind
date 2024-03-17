@@ -1,28 +1,54 @@
+import {useState} from "react";
+
+const flexClasses = "flex items-center justify-center",
+      border = "border-[1px] border-[#ccc] border-solid}"
+
+const fieldContainerStyles   = `w-5/6 h-14 ${flexClasses} mb-4`,
+      inputUserFieldStyles  = `w-full h-full ${border} p-4 rounded-2xl text-lg`;
+
+const buttonUserFieldStyles= `w-full h-full p-4 rounded-xl ${flexClasses} bg-black hover:bg-opacity-75`;
+
+const smallButtonMoneyStyles = `w-24 h-10 ${border} rounded-2xl text-sm font-medium border-gray-300 
+                                       hover:bg-[#808080] hover:bg-opacity-25`;
 function RightCard() {
-    const border = "border-[1px] border-[#ccc] border-solid}"
-    const flexClasses = "flex items-center justify-center";
-
-    const smallButtonMoneyStyles = `w-24 h-10 ${border} rounded-2xl text-sm font-medium border-gray-300 
-                                           hover:bg-gray-300 hover:bg-opacity-50`;
-
-    const fieldContainerStyles = `w-5/6 h-14 ${flexClasses} mb-4`;
-    const inputUserFieldStyles = `w-full h-full ${border} p-4 rounded-2xl text-lg`;
-
-    const buttonUserFieldStyles = `w-full h-full p-4 rounded-xl ${flexClasses} bg-black
-                                          hover:bg-opacity-75`;
+    const maxMoney = 29999;
+    const [inputMoney, setInputMoney] = useState(0);
+    const [inputWidth, setInputWidth] = useState(2);
+    function getNumber (inputValue) {
+        const number = parseInt(inputValue.replace(/\D/g, ""));
+        return isNaN(number) ? 0 : number;
+    }
+    function getCorrectMoneyFormat(money) {
+        return money.toLocaleString().replace(",", " ");
+    }
+    const changeInputMoney = (event) => {
+        const newValue = getNumber(event.target.value);
+        if(newValue > maxMoney){
+            setInputMoney(getCorrectMoneyFormat(maxMoney));
+            setInputWidth(maxMoney.toString().length + 1);
+        }
+        else {
+            setInputMoney(getCorrectMoneyFormat(newValue));
+            setInputWidth(newValue.toString().length + 1);
+        }
+    }
 
     return (
         <main className="w-1/2 h-full flex items-center flex-col">
             <div className="w-4/5 h-60 mt-12 p-1 rounded-3xl gradient-bg-2">
                 <div className="w-full h-full p-3 flex items-center flex-col rounded-3xl bg-white">
                     {/*Header donation*/}
-                    <div className={`w-full h-1/6 gap-2 ${flexClasses}`}>
+                    <div className={`w-full h-1/6 ${flexClasses}`}>
                         <p className="font-medium">Сума поповнення</p>
                         <img className="w-4 h-4" src="https://send.monobank.ua/img/money.png" alt=""/>
                     </div>
                     {/*Body donation*/}
-                    <div className={`w-full h-3/6 pt-2 ${flexClasses} gap-2 font-bold text-opacity-[0.6] text-[#808080]`}>
-                        <div className="outline-0 text-5xl" contentEditable="true" id="money_input">0</div>
+                    <div className={`w-full h-3/6 pt-2 ${flexClasses} font-bold text-opacity-[0.6] text-[#808080]`}>
+                        <input className="w-8 text-5xl outline-none text-center"
+                               value={inputMoney}
+                               onChange={changeInputMoney}
+                               style = {{width: `${inputWidth}ch`}}
+                        />
                         <div className="text-5xl">₴</div>
                     </div>
                     {/*Footer donation*/}
