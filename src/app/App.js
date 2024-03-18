@@ -1,6 +1,6 @@
-import LeftCard from "./components/LeftCard";
-import RightCard from "./components/RightCard";
-import FooterHolder from "./components/FooterHolder";
+import LeftCard from "./components/left-card/LeftCard";
+import RightCard from "./components/right-card/RightCard";
+import FooterHolder from "./components/footer-holder/FooterHolder";
 
 const App = () => {
     return (
