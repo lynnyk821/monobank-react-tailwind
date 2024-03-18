@@ -1,4 +1,4 @@
-function LeftCard() {
+function LeftPart() {
     const flexClasses = "flex items-center justify-center";
     const LeftCardContainer = ({children}) => {
         return (
@@ -61,5 +61,5 @@ function LeftCard() {
     );
 }
 
-export default LeftCard;
+export default LeftPart;
 

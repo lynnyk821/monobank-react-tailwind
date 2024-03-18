@@ -4,43 +4,28 @@ import User from "./user";
 import UserList from "./userList";
 
 function RightCard() {
-    const flexClasses = "flex items-center justify-center", border = "border-[1px] border-[#ccc] border-solid}"
+    const
+        flexClasses = "flex items-center justify-center", border = "border-[1px] border-[#ccc] border-solid}",
+        fieldContainerStyles  = `w-5/6 h-14 ${flexClasses} mb-4`,
+        inputUserFieldStyles  = `w-full h-full ${border} p-4 rounded-2xl text-lg`,
+        buttonUserFieldStyles= `w-full h-full p-4 rounded-xl ${flexClasses} bg-black hover:bg-opacity-75`,
+        smallButtonMoneyStyles = `w-24 h-10 ${border} rounded-2xl text-sm font-medium border-gray-300 hover:bg-[#808080] hover:bg-opacity-25`;
 
-    const fieldContainerStyles  = `w-5/6 h-14 ${flexClasses} mb-4`,
-        inputUserFieldStyles  = `w-full h-full ${border} p-4 rounded-2xl text-lg`;
-
-    const buttonUserFieldStyles= `w-full h-full p-4 rounded-xl ${flexClasses} bg-black hover:bg-opacity-75`;
-
-    const smallButtonMoneyStyles = `w-24 h-10 ${border} rounded-2xl text-sm 
-                                       font-medium border-gray-300 hover:bg-[#808080] hover:bg-opacity-25`;
-
-    const maxMoney = 29999;
     let users = new UserList();
+    const maxMoney = 29999;
+    const [inputWidth, setInputWidth] = useState(2);
+
+    const [name, setName] = useState("");
+    const [comment, setComment] = useState("");
+    const [money, setMoney] = useState(0);
 
     const nameRef = useRef(null),
           commentRef  = useRef(null),
           moneyRef = useRef(null);
 
-    const [inputWidth, setInputWidth] = useState(2);
-    const [name, setName] = useState("");
-    const [comment, setComment] = useState("");
-
-    const [money, setMoney] = useState(0);
-
-    useEffect(() => {
-        if (nameRef.current)
-            nameRef.current.focus();
-    }, [name]);
-
-    useEffect(() => {
-        if (commentRef.current)
-            commentRef.current.focus();
-    }, [comment]);
-
-    useEffect(() => {
-        if (moneyRef.current)
-            moneyRef.current.focus();
-    }, [money]);
+    useEffect(() => { if (nameRef.current) nameRef.current.focus(); }, [name]);
+    useEffect(() => { if (commentRef.current) commentRef.current.focus(); }, [comment]);
+    useEffect(() => { if (moneyRef.current) moneyRef.current.focus(); }, [money]);
 
     function updateMoneyInput (money){
         setMoney(getStringMoneyFormat(money));
@@ -49,7 +34,6 @@ function RightCard() {
     function moneyHandler (money) {
         return money > maxMoney ? updateMoneyInput(maxMoney) : updateMoneyInput(money);
     }
-
     const moneyButtonHandler = (event) => {
         const buttonValue = getNumber(event.target.value);
         const amount = getNumber(money.toString()) + buttonValue;
@@ -59,16 +43,13 @@ function RightCard() {
         const inputValue = getNumber(event.target.value);
         moneyHandler(inputValue);
     }
-
     const inputNameHandler = (event) => setName(event.target.value);
     const inputCommentHandler = (event) => setComment(event.target.value);
-
     const buttonHandler = () => {
         const moneyNumber = getNumber(money);
         users.addUser(new User(name, comment, moneyNumber));
         users.printAllUsersInformation();
     }
-
     const DonationForm = () => {
         const SmallMoneyButton = ({value, onClick}) => {
             return (

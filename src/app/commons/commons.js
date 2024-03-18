@@ -1,5 +1,3 @@
-import {useEffect} from "react";
-
 const getStringMoneyFormat = (money) => money.toLocaleString().replace(",", " ");
 const getNumber = (inputValue) => {
     const number = parseInt(inputValue.replace(/\D/g, ""));
