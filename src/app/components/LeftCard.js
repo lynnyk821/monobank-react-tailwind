@@ -1,16 +1,19 @@
 function LeftCard() {
     const flexClasses = "flex items-center justify-center";
-    return (
-        /*<Left card container/>*/
-        <main className="w-1/2 h-full flex flex-col bg-gray-200 bg-opacity-[0.3]">
-
-            {/* * * Jar Header Logo * * */}
+    const LeftCardContainer = ({children}) => {
+        return (
+            <main className="w-1/2 h-full flex flex-col bg-gray-200 bg-opacity-[0.3]">{children}</main>
+        );
+    }
+    const JarLogo = () => {
+        return (
             <div className={`w-full h-1/6 ${flexClasses}`}>
                 <img className="w-25 h-4 monobank-logo" src="https://send.monobank.ua/img/logo_short.png" alt=""/>
             </div>
-            {/* * * Jar Header Logo * * */}
-
-            {/* * * Jar body * * */}
+        );
+    }
+    const JarBody = () => {
+        return (
             <div className="w-full h-5/6">
                 <div className={`w-full h-52 ${flexClasses} flex-col`}>
                     <img className="w-52 h-52 absolute" src="https://send.monobank.ua/img/jar_bg.png" alt=""/>
@@ -48,8 +51,13 @@ function LeftCard() {
                     </div>
                 </div>
             </div>
-            {/* * * Jar body * * */}
-        </main>
+        );
+    }
+    return (
+        <LeftCardContainer>
+            <JarLogo></JarLogo>
+            <JarBody></JarBody>
+        </LeftCardContainer>
     );
 }
 
